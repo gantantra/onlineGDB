@@ -1,0 +1,50 @@
+#include<stdio.h>
+
+int main()
+{
+    int i,j=1,s1[2000],s2[2000],k=1,c,n=2,s;
+
+    s1[k]=s2[k]=1;
+    while(k<1000&&j<1000)
+    {
+        if(n%2==0)
+        {
+            c=0;
+            for(i=1;i<=k;i++)
+            {
+               s=s1[i]+s2[i]+c;
+               s1[i]=s%10;
+               c=s/10;
+            }
+            while(j>k)
+            {
+               s=c+s2[++k];
+               s1[k]=s%10;
+               c=s/10;
+            }
+            if(c%10!=0)
+                s1[++k]=c;
+            n++;
+        }
+        else
+        {
+            c=0;
+            for(i=1;i<=j;i++)
+            {
+               s=s1[i]+s2[i]+c;
+               s2[i]=s%10;
+               c=s/10;
+            }
+            while(k>j)
+            {
+               s=c+s1[++j];
+               s2[j]=s%10;
+               c=s/10;
+            }
+            if(c%10!=0)
+                s2[++j]=c;
+            n++;
+        }
+    }
+    printf("%d",n);
+}
