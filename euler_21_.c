@@ -1,27 +1,23 @@
-#include<stdio.h>
+/******************************************************************************
 
-int sum (int n)
-{
-    int i,k=n,s=0;
-    for(i=2;i<k&&i<=n/2;i++)
-    {
-        if(n%i==0)
-        {
-            s+=((i!=n/i)?i+n/i:i);
-            k=n/i;
-        }
-    }
-    return s+1;
-}
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
 
 int main()
 {
-     int i,s=0;
-     for(i=2;i<10000;i++)
-     {
-         if(i==sum(sum(i))&&i!=sum(i)&&sum(i)<10000)
-             s+=i;
-     }
-     printf("%d ",s);
+    int i,j,k=220,s=0;
+    j=k;
+    for(i=2;i<j;i++)
+        if(k%i==0)
+        {
+          s=(i==k/i)?s+i:s+i+k/i;
+          j=k/i;
+        }
+    printf("%d",s+1);
+    return 0;
 }
-
